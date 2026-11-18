@@ -1,0 +1,196 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+body {
+    background-color: #efefef;
+    font-family: 'Pretendard', 'Malgun Gothic', sans-serif;
+    color: #333
+}
+
+.game {
+    width: 440px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+.status{
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding:12px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.status strong {
+    color:#e8743b;
+    font-size: 18px;
+}
+.board {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:12px
+}
+.card {
+    height: 100px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition:  transform .4s;
+}
+
+.card span{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    left: 0;
+    top: 0;
+    font-size: 44px;
+    backface-visibility: hidden;
+}
+.card .front {
+    background-color: #e8743b;
+    color:#fff;
+    font-weight: bold;
+}
+.card .back {
+    border: 3px solid #e8743b;
+    background-color: #fff;
+    transform: rotateY(180deg);
+}
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card.open {
+    transform: rotateY(180deg);
+}
+.card.matched .back {
+    background-color: #d8f5d0;
+    border-color: #4caf50;
+
+}
+.message {
+    margin: 24px 0 12px;
+    font-size: 18px;
+    font-weight: bold;
+    min-height: 27px;
+}
+
+.restart {
+    padding: 10px 24px;
+    border-radius: 20px;
+    background-color: #333;
+    color:#fff;
+    font-size: 15px;
+}
+.restart:hover{
+    background-color: #e8743b;
+} */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+ul { list-style: none; }
+button { font-family: inherit; border: none; cursor: pointer; }
+
+body {
+  background: #fdf6ec;
+  font-family: 'Pretendard', 'Malgun Gothic', sans-serif;
+  color: #333;
+}
+
+.game {
+  width: 440px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+h1 { font-size: 32px; margin-bottom: 20px; }
+
+/* 상태판: 시도 · 시간 · 최고 기록 */
+.status {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+.status strong { color: #e8743b; font-size: 18px; }
+
+/* 카드판: 4칸 × 4줄 */
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+/* 카드 한 장 = 앞면(?) + 뒷면(그림) 두 겹 */
+.card {
+  position: relative;
+  height: 100px;
+  background: none;
+  transform-style: preserve-3d;      /* 자식(앞·뒷면)도 3D로 */
+  transition: transform 0.4s;
+}
+.card span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  font-size: 44px;
+  backface-visibility: hidden;       /* 뒤로 돌아간 면은 안 보이게 */
+}
+.card .front { background: #e8743b; color: #fff; font-weight: bold; }
+.card .back {
+  background: #fff;
+  border: 3px solid #e8743b;
+  transform: rotateY(180deg);        /* 처음엔 뒤돌아 있음 */
+}
+
+.card:hover { transform: translateY(-4px); }
+
+/* JS가 붙이는 class */
+.card.open { transform: rotateY(180deg); }            /* 뒤집기 */
+.card.matched .back { background: #d8f5d0; border-color: #4caf50; }  /* 짝 맞춤 */
+
+.message {
+  margin: 24px 0 12px;
+  font-size: 18px;
+  font-weight: bold;
+  min-height: 27px;
+}
+
+.restart {
+  padding: 10px 24px;
+  border-radius: 20px;
+  background: #333;
+  color: #fff;
+  font-size: 15px;
+}
+.restart:hover { background: #e8743b; }
