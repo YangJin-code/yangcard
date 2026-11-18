@@ -113,7 +113,7 @@ ul { list-style: none; }
 button { font-family: inherit; border: none; cursor: pointer; }
 
 body {
-  background: #fdf6ec;
+  background: #e6fbff;
   font-family: 'Pretendard', 'Malgun Gothic', sans-serif;
   color: #333;
 }
@@ -136,7 +136,7 @@ h1 { font-size: 32px; margin-bottom: 20px; }
   margin-bottom: 20px;
   font-size: 15px;
 }
-.status strong { color: #e8743b; font-size: 18px; }
+.status strong { color: aquamarine; font-size: 18px; }
 
 /* 카드판: 4칸 × 4줄 */
 .board {
@@ -166,10 +166,10 @@ h1 { font-size: 32px; margin-bottom: 20px; }
   font-size: 44px;
   backface-visibility: hidden;       /* 뒤로 돌아간 면은 안 보이게 */
 }
-.card .front { background: #e8743b; color: #fff; font-weight: bold; }
+.card .front { background: aquamarine; color: #fff; font-weight: bold; }
 .card .back {
   background: #fff;
-  border: 3px solid #e8743b;
+  border: 3px solid aquamarine;
   transform: rotateY(180deg);        /* 처음엔 뒤돌아 있음 */
 }
 
@@ -177,7 +177,7 @@ h1 { font-size: 32px; margin-bottom: 20px; }
 
 /* JS가 붙이는 class */
 .card.open { transform: rotateY(180deg); }            /* 뒤집기 */
-.card.matched .back { background: #d8f5d0; border-color: #4caf50; }  /* 짝 맞춤 */
+.card.matched .back { background: #a3daff; border-color: #0f6fff; }  /* 짝 맞춤 */
 
 .message {
   margin: 24px 0 12px;
@@ -193,4 +193,4 @@ h1 { font-size: 32px; margin-bottom: 20px; }
   color: #fff;
   font-size: 15px;
 }
-.restart:hover { background: #e8743b; }
+.restart:hover { background: aquamarine; }
